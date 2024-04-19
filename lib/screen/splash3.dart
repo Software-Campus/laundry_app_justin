@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:laundaryapp/screen/splash4.dart';
+import 'package:laundaryapp/const.dart';
+import 'package:laundaryapp/homepages/home.dart';
+import 'package:laundaryapp/screen/splashchange.dart';
+import 'package:laundaryapp/screen/splashlo.dart';
 import 'package:laundaryapp/widgets/SplashscreenBg.dart';
 import 'package:pinput/pinput.dart';
 
@@ -30,55 +33,54 @@ class SplashPage3 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 18.h, left: 85.w),
+              padding: EdgeInsets.only(top: 71.h, left: 96.w),
               child: Text(
-                'We have sent\nyou an OTP',
+                'We have sent\nyou An OTP',
                 style: TextStyle(
-                  fontSize: 34.sp,
+                  letterSpacing: MediaQuery.of(context).size.width * 0.005.w,
+                  fontSize: 26.sp,
                   fontWeight: FontWeight.w700,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            Gap(48),
-            Opacity(
-              opacity: 0.7,
-              child: Center(
-                child: Pinput(
-                  defaultPinTheme: PinTheme(
-                      height: 18.h,
-                      width: 18.w,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100))),
-                  length: 6,
-                ),
+            Gap(24.h),
+            Center(
+              child: Pinput(separatorBuilder: (index) => SizedBox(width: 17.w,),
+                defaultPinTheme: PinTheme(
+                    height: 60.h,
+                    textStyle: font16fw700black,
+                    width: 69.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10))),
+                length: 4,
               ),
             ),
-            Padding(
-              padding:  EdgeInsets.only(top: 104.h,left: 76.w),
-              child: Opacity(
-                opacity: 0.8,
-                child: RichText(
-                    text: TextSpan(
-                        text: 'Don’t recive OTP? ',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xffFFFFFF)),
-                        children: [
-                      TextSpan(
-                        text: 'RESENT OTP',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xffFFFFFF)),
-                      )
-                    ])),
+          Gap(16.h),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don’t receive OTP? ',
+                style: font14fw500,
               ),
-            ),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SplashLogin(),
+                        ));
+                  },
+                  child: Text(
+                    'RESEND OTP',
+                    style: font14fw500,
+                  ))
+            ],
+          ),
             Padding(
-              padding: EdgeInsets.only(left: 24.w, top: 364.h, bottom: 27.h),
+              padding: EdgeInsets.only(left: 24.w, top: 400.h, bottom: 27.h),
               child: SizedBox(
                 height: 64.h,
                 width: 333.w,
@@ -87,7 +89,7 @@ class SplashPage3 extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SplashPage4(),
+                            builder: (context) => HomePage(),
                           ));
                     },
                     child: Text(

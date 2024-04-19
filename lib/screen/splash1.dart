@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:laundaryapp/homepages/home.dart';
 import 'package:laundaryapp/screen/splash2.dart';
 import 'package:laundaryapp/screen/splash3.dart';
-import 'package:laundaryapp/screen/splash4.dart';
+
 
 class SplashPage1 extends StatelessWidget {
   const SplashPage1({super.key});
@@ -16,12 +17,25 @@ class SplashPage1 extends StatelessWidget {
       children: [
         Scaffold(
             backgroundColor: Color(0xff1FACF3),
-            body: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 89.h, left: 32.w),
+                      padding: EdgeInsets.only(top: 51.h, left: 310.w),
+                      child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SplashPage2(),
+                                ));
+                          },
+                          child: Text('Skip')),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 32.w, right: 56.w),
                       child: Image.asset(
                         'asset/images/pic4.png',
                         height: 255.h,
@@ -30,7 +44,7 @@ class SplashPage1 extends StatelessWidget {
                     ),
                     Gap(54.h),
                     Text(
-                      'Lorem ipsum \n Lorem ipsumLorem',
+                      'Get your Laundry and\nDry cleaning in 24 hours',
                       style: TextStyle(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w700,
@@ -39,7 +53,7 @@ class SplashPage1 extends StatelessWidget {
                     ),
                     Gap(16.h),
                     Text(
-                      "Lorem Ipsum has been the industry's \nstandardLorem Ipsum has ",
+                      "A convenient laundry solution that\n helps protect the enviornment ",
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,

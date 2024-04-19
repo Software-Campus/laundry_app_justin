@@ -10,11 +10,20 @@ class SplashscreenBG extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff1FACF3),
-        body: Stack(
-          children: [Positioned
-          (bottom: 0,
-            child: Image.asset('asset/images/pic6.png'))],
-        ));
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Color(0xff1FACF3),
+      body: Stack(
+        children: [
+          Positioned(
+              bottom: 0,
+              child: Image.asset(
+                'asset/images/pic6.png',
+                height: 399.h,
+                width: 317.w,
+              )),
+          mywidget
+        ],
+      ),
+    );
   }
 }

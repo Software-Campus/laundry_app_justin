@@ -5,19 +5,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/screen/splash1.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
     Timer(
       Duration(seconds: 4),
       () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SplashPage1(),
+            builder: (context) => const SplashPage1(),
           )),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: 393.h, left: 71.w),
