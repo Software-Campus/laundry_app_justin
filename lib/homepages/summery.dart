@@ -192,7 +192,7 @@ class _SummaryPageState extends State<SummaryPage> {
                                     '${DateFormat('dd-MM-yyyy').format(date)}',
                                     style: font14fw500black,
                                   ),
-                                  Gap(10.w),
+                                  Gap(8.w),
                                   Icon(
                                     Icons.keyboard_arrow_down,
                                     size: 14.sp,
@@ -202,7 +202,7 @@ class _SummaryPageState extends State<SummaryPage> {
                               ),
                             ),
                           ),
-                          Gap(11.w),
+                          Gap(10.w),
                           DropdownMenu(
                             inputDecorationTheme: InputDecorationTheme(
                               constraints:

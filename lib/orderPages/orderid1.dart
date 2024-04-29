@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/adress.dart';
+import 'package:laundaryapp/orderPages/order.dart';
 import 'package:laundaryapp/orderPages/orderid.dart';
 import 'package:slider_button/slider_button.dart';
 
@@ -39,67 +40,7 @@ class _OrderidPage1State extends State<OrderidPage1> {
                     scrollControlDisabledMaxHeightRatio: 0.65,
                     context: context,
                     builder: (context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 700.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(12.r),
-                                topRight: Radius.circular(12.r))),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 325.w, top: 30.h),
-                              child: Icon(
-                                Icons.close,
-                                size: 22.sp,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 23.w),
-                              child: Text(
-                                'How satisfied were you\nwith your experience',
-                                style: font24fw700black,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 24.w, top: 35.h),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 71.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffECF3F6),
-                                        borderRadius:
-                                            BorderRadius.circular(12.r)),
-                                  ),
-                                  Gap(24.h),
-                                  Container(
-                                    height: 170.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffECF3F6),
-                                        borderRadius:
-                                            BorderRadius.circular(12.r)),
-                                  ),
-                                  Gap(35.h),
-                                  Container(
-                                    height: 64.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: color1FACF3,
-                                        borderRadius:
-                                            BorderRadius.circular(140.r)),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
+                      return showsheet();
                     },
                   );
                 },

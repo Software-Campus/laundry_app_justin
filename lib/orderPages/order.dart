@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/orderPages/orderid.dart';
 import 'package:laundaryapp/orderPages/orderid1.dart';
+import 'package:laundaryapp/orderPages/tracking.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});
@@ -131,6 +132,13 @@ class OrderPage extends StatelessWidget {
                         builder: (context) => OrderidPage(),
                       ));
                 },
+                tracking:  () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TrackingPage(),
+                      ));
+                },
               ),
               Gap(18.h),
               contain2(
@@ -153,125 +161,7 @@ class OrderPage extends StatelessWidget {
                     scrollControlDisabledMaxHeightRatio: 0.65,
                     context: context,
                     builder: (context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 587.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(12.r),
-                                topRight: Radius.circular(12.r))),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 23.w, top: 37.h),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'How satisfied were you\nwith your experience',
-                                    style: font24fw700black,
-                                  ),
-                                  Gap(60.w),
-                                  Icon(
-                                    Icons.close,
-                                    size: 22.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 24.w, top: 35.h),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 71.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffECF3F6),
-                                        borderRadius:
-                                            BorderRadius.circular(12.r)),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 14.h, left: 43.w, bottom: 15.h),
-                                      child: Row(
-                                        children: [
-                                          star(
-                                            color: color1FACF3,
-                                            height: 42.h,
-                                            width: 42.w,
-                                          ),
-                                          Gap(10.w),
-                                          star(
-                                            color: color1FACF3,
-                                            height: 42.h,
-                                            width: 42.w,
-                                          ),
-                                          Gap(10.w),
-                                          star(
-                                            color: color1FACF3,
-                                            height: 42.h,
-                                            width: 42.w,
-                                          ),
-                                          Gap(10.w),
-                                          star(
-                                            color: color1FACF3,
-                                            height: 42.h,
-                                            width: 42.w,
-                                          ),
-                                          Gap(10.w),
-                                          star(
-                                            color: Colors.white,
-                                            height: 42.h,
-                                            width: 42.w,
-                                          ),
-                                          Gap(10.w),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Gap(24.h),
-                                  Container(
-                                    height: 170.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffECF3F6),
-                                        borderRadius:
-                                            BorderRadius.circular(12.r)),
-                                    child: TextField(
-                                      style: font16fw700black,
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderSide: BorderSide.none),
-                                          hintText: 'Enter Feedback here',
-                                          hintStyle: TextStyle(
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xff6E97AE),
-                                            fontFamily: 'DM_Sans',
-                                          )),
-                                    ),
-                                  ),
-                                  Gap(35.h),
-                                  Container(
-                                    height: 64.h,
-                                    width: 333.w,
-                                    decoration: BoxDecoration(
-                                        color: color1FACF3,
-                                        borderRadius:
-                                            BorderRadius.circular(140.r)),
-                                    child: Center(
-                                        child: Text(
-                                      'Submit',
-                                      style: font16fw700white,
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
+                      return showsheet();
                     },
                   );
                 },
@@ -290,6 +180,135 @@ class OrderPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class showsheet extends StatelessWidget {
+  const showsheet({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 587.h,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12.r),
+              topRight: Radius.circular(12.r))),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 23.w, top: 37.h),
+            child: Row(
+              children: [
+                Text(
+                  'How satisfied were you\nwith your experience',
+                  style: font24fw700black,
+                ),
+                Gap(60.w),
+                Icon(
+                  Icons.close,
+                  size: 22.sp,
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 24.w, top: 35.h),
+            child: Column(
+              children: [
+                Container(
+                  height: 71.h,
+                  width: 333.w,
+                  decoration: BoxDecoration(
+                      color: Color(0xffECF3F6),
+                      borderRadius:
+                          BorderRadius.circular(12.r)),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        top: 14.h, left: 43.w, bottom: 15.h),
+                    child: Row(
+                      children: [
+                        star(
+                          color: color1FACF3,
+                          height: 42.h,
+                          width: 42.w,
+                        ),
+                        Gap(10.w),
+                        star(
+                          color: color1FACF3,
+                          height: 42.h,
+                          width: 42.w,
+                        ),
+                        Gap(10.w),
+                        star(
+                          color: color1FACF3,
+                          height: 42.h,
+                          width: 42.w,
+                        ),
+                        Gap(10.w),
+                        star(
+                          color: color1FACF3,
+                          height: 42.h,
+                          width: 42.w,
+                        ),
+                        Gap(10.w),
+                        star(
+                          color: Colors.white,
+                          height: 42.h,
+                          width: 42.w,
+                        ),
+                        Gap(10.w),
+                      ],
+                    ),
+                  ),
+                ),
+                Gap(24.h),
+                Container(
+                  height: 170.h,
+                  width: 333.w,
+                  decoration: BoxDecoration(
+                      color: Color(0xffECF3F6),
+                      borderRadius:
+                          BorderRadius.circular(12.r)),
+                  child: TextField(
+                    style: font16fw700black,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none),
+                        hintText: 'Enter Feedback here',
+                        hintStyle: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff6E97AE),
+                          fontFamily: 'DM_Sans',
+                        )),
+                  ),
+                ),
+                Gap(35.h),
+                Container(
+                  height: 64.h,
+                  width: 333.w,
+                  decoration: BoxDecoration(
+                      color: color1FACF3,
+                      borderRadius:
+                          BorderRadius.circular(140.r)),
+                  child: Center(
+                      child: Text(
+                    'Submit',
+                    style: font16fw700white,
+                  )),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/adress.dart';
+import 'package:laundaryapp/homepages/home.dart';
+import 'package:radio_group_v2/radio_group_v2.dart';
 import 'package:slider_button/slider_button.dart';
 
 class OrderidPage extends StatefulWidget {
@@ -16,7 +18,6 @@ class OrderidPage extends StatefulWidget {
 
 class _OrderidPageState extends State<OrderidPage> {
   int selected = 1;
-  bool isOn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -296,18 +297,174 @@ class _OrderidPageState extends State<OrderidPage> {
                                   Gap(8.w),
                                   GestureDetector(
                                     onTap: () {
-                                      showModalBottomSheet(context: context, builder: (context) {
-                                        return Container(
-                                          height: 777.h,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4.r),
-                                topRight: Radius.circular(4.r))),
-                                
-                                        );
-                                      },);
+                                      setState(() {});
+                                      showModalBottomSheet(
+                                        scrollControlDisabledMaxHeightRatio:
+                                            0.80.h,
+                                        context: context,
+                                        builder: (context) {
+                                          return Container(
+                                              height: 777.h,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.r),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.r))),
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  left: 24.w,
+                                                ),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  OrderidPage(),
+                                                            ));
+                                                      },
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 300.w,
+                                                                top: 19.h),
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          size: 22.sp,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Tell us\nyour reason for\ncancelling',
+                                                      style: TextStyle(
+                                                        fontSize: 34.sp,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color: Colors.black,
+                                                        fontFamily: 'DM_Sans',
+                                                      ),
+                                                    ),
+                                                    Gap(32.h),
+                                                    RadioGroup(
+                                                      values: [
+                                                        'Change in Plans',
+                                                        'Emergencies',
+                                                        'Travel Plans',
+                                                        'Unsatisfactory Service Experience',
+                                                        'Availability of Alternatives',
+                                                        'Personal Health Issues',
+                                                        'Quality Concerns',
+                                                        'Change in Laundry Volume',
+                                                        'Other ',
+                                                      ],
+                                                      indexOfDefault: 0,
+                                                      decoration:
+                                                          RadioGroupDecoration(
+                                                              activeColor:
+                                                                  Colors.blue,
+                                                              labelStyle:
+                                                                  font16fw700black),
+                                                    ),
+                                                    Gap(38.h),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                        showModalBottomSheet(
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return Container(
+                                                              height: 300.h,
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              decoration: BoxDecoration(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  borderRadius: BorderRadius.only(
+                                                                      topLeft: Radius
+                                                                          .circular(12
+                                                                              .r),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.r))),
+                                                              child: Column(
+                                                                children: [
+                                                                  Gap(37.h),
+                                                                  Text(
+                                                                    'Booking\nCancelled',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          34.sp,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      color: Color(
+                                                                          0xffF1766F),
+                                                                    ),
+                                                                  ),
+                                                                  Gap(19.h),
+                                                                  Text(
+                                                                    'Your  booking successfully cancelled\nsee you next time !',
+                                                                    style:
+                                                                        font14fw500black,
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                  ),
+                                                                  Gap(31.h),
+                                                                  GestureDetector(
+                                                                    onTap:() {
+                                                                       Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  HomePage(),
+                                                            ));
+                                                                    }, 
+                                                                    child: container(
+                                                                      color:
+                                                                          color1FACF3,
+                                                                      height:
+                                                                          64.h,
+                                                                      width:
+                                                                          333.w,
+                                                                      text:
+                                                                          'Back to home',
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                      child: container(
+                                                        color: color1FACF3,
+                                                        height: 64.h,
+                                                        width: 333.w,
+                                                        text: 'Submit',
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ));
+                                        },
+                                      );
                                     },
                                     child: YorNcontain(
                                       colors: Colors.red,
@@ -342,6 +499,35 @@ class _OrderidPageState extends State<OrderidPage> {
   }
 }
 
+class container extends StatelessWidget {
+  const container({
+    super.key,
+    required this.text,
+    required this.height,
+    required this.width,
+    required this.color,
+  });
+  final String text;
+  final double height;
+  final double width;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+          color: color, borderRadius: BorderRadius.circular(140.r)),
+      child: Center(
+          child: Text(
+        text,
+        style: font16fw700white,
+      )),
+    );
+  }
+}
+
 class YorNcontain extends StatelessWidget {
   const YorNcontain({
     super.key,
@@ -370,7 +556,8 @@ class contain extends StatelessWidget {
   const contain({
     super.key,
     required this.text,
-    required this.text1, required this.containon,
+    required this.text1,
+    required this.containon,
   });
   final String text;
   final String text1;
@@ -397,7 +584,7 @@ class contain extends StatelessWidget {
               '19 Cross, between Hufuf and, Khobar\n676552, India\n+91 8415698625',
               style: font14fw500black,
             ),
-            containon? Gap(0.h):Gap(10),
+            containon ? Gap(0.h) : Gap(10),
             Row(
               children: [
                 Image.asset(
@@ -432,27 +619,26 @@ class contain extends StatelessWidget {
                   ),
                 ),
                 Gap(8.w),
-                containon?
-                Container(
-                  height: 32.h,
-                  width: 108.w,
-                  decoration: BoxDecoration(
-                      color: color1FACF3,
-                      borderRadius: BorderRadius.circular(140.r)),
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 12.w, top: 6.h),
-                    child: Text(
-                      'Reschedule',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'DM_Sans',
-                      ),
-                    ),
-                  ),
-                ):
-                
-                Container()
+                containon
+                    ? Container(
+                        height: 32.h,
+                        width: 108.w,
+                        decoration: BoxDecoration(
+                            color: color1FACF3,
+                            borderRadius: BorderRadius.circular(140.r)),
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 12.w, top: 6.h),
+                          child: Text(
+                            'Reschedule',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'DM_Sans',
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container()
               ],
             )
           ],

@@ -6,7 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/washing.dart';
+import 'package:laundaryapp/notifications/notify.dart';
 import 'package:laundaryapp/orderPages/order.dart';
+import 'package:laundaryapp/profile/laundry.dart';
+import 'package:laundaryapp/profile/profile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -65,8 +68,17 @@ class HomePage extends StatelessWidget {
                         ),
                         label: ''),
                     NavigationDestination(
-                        icon: Icon(Icons.notifications,
-                            size: 28.sp, color: Color(0xff6E97AE)),
+                        icon: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NotifyPage(),
+                                ));
+                          },
+                          child: Icon(Icons.notifications,
+                              size: 28.sp, color: Color(0xff6E97AE)),
+                        ),
                         selectedIcon: Icon(
                           Icons.notifications,
                           color: Colors.blue,
@@ -74,10 +86,19 @@ class HomePage extends StatelessWidget {
                         ),
                         label: ''),
                     NavigationDestination(
-                        icon: Icon(
-                          Icons.person,
-                          color: Color(0xff6E97AE),
-                          size: 28.sp,
+                        icon: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProfilePage(),
+                                ));
+                          },
+                          child: Icon(
+                            Icons.person,
+                            color: Color(0xff6E97AE),
+                            size: 28.sp,
+                          ),
                         ),
                         selectedIcon: Icon(
                           Icons.person,
