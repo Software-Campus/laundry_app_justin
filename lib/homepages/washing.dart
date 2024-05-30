@@ -154,12 +154,18 @@ class _WashingPageState extends State<WashingPage> {
                                       style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w700,
+                                        color: Colors.white,
                                         fontFamily: 'DM_Sans',
                                       ),
                                     ),
                                     Text(
                                       '$itemCount items',
-                                      style:font14fw500,
+                                      style:TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                        fontFamily: 'DM_Sans',
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -167,11 +173,7 @@ class _WashingPageState extends State<WashingPage> {
                                   children: [
                                     Text(
                                       'Proceed',
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'DM_Sans',
-                                      ),
+                                      style:font16fw700white
                                     ),
                                     Gap(12.w),
                                     Icon(
@@ -233,21 +235,11 @@ class _washState extends State<wash> {
         ),
         Text(
           widget.text,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w400,
-            color: Colors.black,
-            fontFamily: 'DM_Sans',
-          ),
+          style:font16fw400black
         ),
         Text(
           '\$ ${widget.price}',
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'DM_Sans',
-            color: Colors.black,
-          ),
+          style: font16fw400black
         ),
         count == 0
             ? Container(
@@ -266,11 +258,7 @@ class _washState extends State<wash> {
                     },
                     child: Text(
                       '+Add',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'DM_Sans',
-                      ),
+                      style: font16fw400white,
                       textAlign: TextAlign.center,
                     ),
                   ),

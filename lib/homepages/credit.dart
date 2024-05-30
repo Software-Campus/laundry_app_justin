@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/booking.dart';
+import 'package:laundaryapp/profile/prodetails.dart';
 import 'package:laundaryapp/screen/splashregister.dart';
 
 class CreditPage extends StatefulWidget {
@@ -15,6 +17,7 @@ class CreditPage extends StatefulWidget {
 
 class _CreditPageState extends State<CreditPage> {
   bool saveon = false;
+  int select=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,16 +35,38 @@ class _CreditPageState extends State<CreditPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    'asset/images/visa.png',
-                    height: 100.h,
-                    width: 323.w,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        select=1;
+                      });
+                    },
+                    child:select==1? Image.asset(
+                      'asset/images/visa.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ):Image.asset(
+                      'asset/images/visaa.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ),
                   ),
                   Gap(12.h),
-                  Image.asset(
-                    'asset/images/visa1.png',
-                    height: 100.h,
-                    width: 323.w,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        select=2;
+                      });
+                    },
+                    child:select==2? Image.asset(
+                      'asset/images/visaa1.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ): Image.asset(
+                      'asset/images/visa1.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ),
                   ),
                   Gap(24.h),
                   Text(
@@ -59,9 +84,9 @@ class _CreditPageState extends State<CreditPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gap(16.h),
-                  Regist(text: 'Card holder name'),
+                  Regist(text: 'Card holder name',control: password,),
                   Gap(12.h),
-                  Regist(text: 'Card number'),
+                  Regist(text: 'Card number',control: password,),
                   Gap(12.h),
                   Padding(
                     padding: EdgeInsets.only(left: 17.w),

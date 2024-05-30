@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/home.dart';
+import 'package:laundaryapp/navigate/navigate.dart';
 import 'package:laundaryapp/screen/splashchange.dart';
 import 'package:laundaryapp/screen/splashlo.dart';
 import 'package:laundaryapp/widgets/SplashscreenBg.dart';
@@ -89,7 +90,7 @@ class SplashPage3 extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => NavigatePage(),
                           ));
                     },
                     child: Text(

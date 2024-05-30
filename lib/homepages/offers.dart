@@ -15,7 +15,7 @@ class OffersPage extends StatefulWidget {
 }
 
 class _OffersPageState extends State<OffersPage> {
-  bool isOn = false;
+  int isOn = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +62,10 @@ class _OffersPageState extends State<OffersPage> {
                   Gap(59.w),
                   Checkbox(
                     activeColor: Colors.blue,
-                    value: isOn,
+                    value: isOn == 1,
                     onChanged: (value) {
                       setState(() {
-                        isOn = value!;
+                        isOn = 1;
                       });
                     },
                   )
@@ -105,10 +105,10 @@ class _OffersPageState extends State<OffersPage> {
                   Gap(59.w),
                   Checkbox(
                     activeColor: Colors.blue,
-                    value: isOn,
+                    value: isOn == 2,
                     onChanged: (value) {
                       setState(() {
-                        isOn = value!;
+                        isOn = 2;
                       });
                     },
                   )

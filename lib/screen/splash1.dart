@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,10 +9,15 @@ import 'package:laundaryapp/homepages/home.dart';
 import 'package:laundaryapp/screen/splash2.dart';
 import 'package:laundaryapp/screen/splash3.dart';
 
-
-class SplashPage1 extends StatelessWidget {
+class SplashPage1 extends StatefulWidget {
   const SplashPage1({super.key});
 
+  @override
+  State<SplashPage1> createState() => _SplashPage1State();
+}
+
+class _SplashPage1State extends State<SplashPage1> {
+  int indexpage = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -23,7 +30,7 @@ class SplashPage1 extends StatelessWidget {
                 Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 51.h, left: 310.w),
+                      padding: EdgeInsets.only(top: 58.h, left: 310.w),
                       child: GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -34,13 +41,41 @@ class SplashPage1 extends StatelessWidget {
                           },
                           child: Text('Skip')),
                     ),
+                    Gap(7.h),
                     Padding(
                       padding: EdgeInsets.only(left: 32.w, right: 56.w),
-                      child: Image.asset(
-                        'asset/images/pic4.png',
-                        height: 255.h,
-                        width: 293.w,
-                      ),
+                      child: CarouselSlider(
+                          options: CarouselOptions(
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            autoPlay: false,
+                            enableInfiniteScroll: false,
+                            viewportFraction: 1,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                indexpage = index;
+                              });
+                            },
+                          ),
+                          items: [
+                            Image.asset(
+                              'asset/images/pic4.png',
+                              height: 255.h,
+                              width: 293.w,
+                              fit: BoxFit.cover,
+                            ),
+                            Image.asset(
+                              'asset/images/pic4.png',
+                              height: 255.h,
+                              width: 293.w,
+                              fit: BoxFit.cover,
+                            ),
+                            Image.asset(
+                              'asset/images/pic4.png',
+                              height: 255.h,
+                              width: 293.w,
+                              fit: BoxFit.cover,
+                            ),
+                          ]),
                     ),
                     Gap(54.h),
                     Text(
@@ -62,6 +97,19 @@ class SplashPage1 extends StatelessWidget {
                     ),
                   ],
                 ),
+                Gap(40.h),
+                DotsIndicator(
+                  dotsCount: 3,
+                  position: indexpage,
+                  decorator: DotsDecorator(
+                      color: Color(0xff141521),
+                      size: Size(8.w, 8.h),
+                      activeSize: Size(25.w, 8.w),
+                      activeColor: Colors.white,
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40.r))),
+                ),
+                Gap(28.h),
                 Column(
                   children: [
                     Image.asset(

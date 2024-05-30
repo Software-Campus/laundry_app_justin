@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/booking.dart';
+import 'package:laundaryapp/profile/prodetails.dart';
 import 'package:laundaryapp/screen/splashregister.dart';
 
 class UpiPage extends StatefulWidget {
@@ -15,6 +17,7 @@ class UpiPage extends StatefulWidget {
 
 class _UpiPageState extends State<UpiPage> {
   bool saveon = false;
+  int select=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,16 +39,30 @@ class _UpiPageState extends State<UpiPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    'asset/images/Gpay.png',
-                    height: 100.h,
-                    width: 323.w,
+                  GestureDetector(
+                     onTap: () {
+                      setState(() {
+                        select=1;
+                      });
+                    },
+                    child: Image.asset(
+                      'asset/images/Gpay.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ),
                   ),
                   Gap(12.h),
-                  Image.asset(
-                    'asset/images/phpe.png',
-                    height: 100.h,
-                    width: 323.w,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        select=2;
+                      });
+                    },
+                    child: Image.asset(
+                      'asset/images/phpe.png',
+                      height: 100.h,
+                      width: 323.w,
+                    ),
                   ),
                   Gap(24.h),
                   Text(
@@ -63,7 +80,7 @@ class _UpiPageState extends State<UpiPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gap(16.h),
-                  Regist(text: 'Card holder name'),
+                  Regist(text: 'Card holder name',control: password,),
                   Padding(
                     padding: EdgeInsets.only(left: 10.w, top: 12.h),
                     child: Row(

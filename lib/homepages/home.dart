@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,114 +9,30 @@ import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/homepages/washing.dart';
 import 'package:laundaryapp/notifications/notify.dart';
 import 'package:laundaryapp/orderPages/order.dart';
-import 'package:laundaryapp/profile/laundry.dart';
 import 'package:laundaryapp/profile/profile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Scaffold(
-            resizeToAvoidBottomInset: false,
-            extendBody: true,
-            bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.circular(140.sp),
-              child: Container(
-                height: 64.h,
-                margin: EdgeInsets.only(bottom: 27.h, left: 24.w, right: 24.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(140.sp),
-                ),
-                clipBehavior: Clip.hardEdge,
-                child: NavigationBar(
-                  backgroundColor: Colors.white,
-                  surfaceTintColor: Colors.white,
-                  indicatorColor: Colors.white,
-                  destinations: [
-                    NavigationDestination(
-                        icon: Icon(Icons.grid_view_rounded,
-                            color: Color(0xff6E97AE)),
-                        selectedIcon: Icon(
-                          Icons.grid_view_rounded,
-                          color: Colors.blue,
-                          size: 28.sp,
-                        ),
-                        label: ''),
-                    NavigationDestination(
-                        icon: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => OrderPage(),
-                                ));
-                          },
-                          child: Image.asset(
-                            'asset/images/calendar.png',
-                            height: 28.h,
-                            width: 28.w,
-                          ),
-                        ),
-                        selectedIcon: Image.asset(
-                          'asset/images/calendar.png',
-                          height: 28.h,
-                          width: 28.w,
-                          color: color1FACF3,
-                        ),
-                        label: ''),
-                    NavigationDestination(
-                        icon: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => NotifyPage(),
-                                ));
-                          },
-                          child: Icon(Icons.notifications,
-                              size: 28.sp, color: Color(0xff6E97AE)),
-                        ),
-                        selectedIcon: Icon(
-                          Icons.notifications,
-                          color: Colors.blue,
-                          size: 28.sp,
-                        ),
-                        label: ''),
-                    NavigationDestination(
-                        icon: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ProfilePage(),
-                                ));
-                          },
-                          child: Icon(
-                            Icons.person,
-                            color: Color(0xff6E97AE),
-                            size: 28.sp,
-                          ),
-                        ),
-                        selectedIcon: Icon(
-                          Icons.person,
-                          color: Colors.blue,
-                          size: 28.sp,
-                        ),
-                        label: ''),
-                  ],
-                ),
-              ),
-            ),
             backgroundColor: Color(0xffECF3F6),
             body: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 70.h, left: 28.w, right: 199.w),
+                    padding:
+                        EdgeInsets.only(top: 70.h, left: 28.w, right: 199.w),
                     child: Text(
                       'Hello\nJohn Doe',
                       style: TextStyle(
@@ -149,28 +66,49 @@ class HomePage extends StatelessWidget {
                   ),
                   Gap(27.h),
                   CarouselSlider(
-                    options: CarouselOptions(height: 139.h,autoPlay: false,),
-                    items: [
-                      1,
-                      
-                    ].map((i) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Image.asset(
-                              'asset/images/pic8.png',
-                              height: 139.h,
-                              width: 328.w,
-                            ),
-                          );
+                      options: CarouselOptions(
+                        viewportFraction: 1,
+                        autoPlay: false,
+                        aspectRatio: 16 / 6,
+                        enableInfiniteScroll: false,
+                        enlargeCenterPage: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            selectedIndex = index;
+                          });
                         },
-                      );
-                    }).toList(),
+                      ),
+                      items: [
+                        Image.asset(
+                          'asset/images/pic8.png',
+                          height: 139.h,
+                          width: 328.w,
+                        ),
+                        Image.asset(
+                          'asset/images/pic8.png',
+                          height: 139.h,
+                          width: 328.w,
+                        ),
+                        Image.asset(
+                          'asset/images/pic8.png',
+                          height: 139.h,
+                          width: 328.w,
+                        )
+                      ]),
+                  Gap(24.h),
+                  DotsIndicator(
+                    dotsCount: 3,
+                    position: selectedIndex,
+                    decorator: DotsDecorator(
+                        color: Colors.white,
+                        size: Size(7.w, 7.h),
+                        activeSize: Size(9.w, 9.w),
+                        activeColor: Colors.blue,
+                        shape: CircleBorder(
+                            side: BorderSide(
+                                color: Color(0xff6E97AE), strokeAlign: 1.5))),
                   ),
-                  
-                  Gap(55.h),
+                  Gap(24.h),
                   Container(
                     height: 155.h,
                     width: 327.w,
@@ -223,7 +161,8 @@ class HomePage extends StatelessWidget {
                     child: GridView.count(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 35, vertical: 24),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 35, vertical: 24),
                       crossAxisCount: 2,
                       mainAxisSpacing: 15.24.h,
                       crossAxisSpacing: 21.w,

@@ -21,21 +21,16 @@ class _PrivacyPageState extends State<PrivacyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffECF3F6),
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xffECF3F6),
-      //   title: Text('Privacy policy', style: font20fw700),
-      //   centerTitle: true,
-      // ),
+      appBar: AppBar(
+        backgroundColor: Color(0xffECF3F6),
+        title: Text('Privacy policy', style: font20fw700),
+        centerTitle: true,
+      ),
       body: Padding(
-        padding:  EdgeInsets.only(top: 36.h,left: 24.w,right: 24.w),
+        padding:  EdgeInsets.only(left: 24.w,right: 24.w),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Text('Privacy policy', style: font20fw700),
-                Icon(Icons.arrow_back),
-              ],
-            ),
+            
           Text('Data Privacy and Protection',style:font20fw700black,),
            
               Gap(13.h),

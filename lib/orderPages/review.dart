@@ -6,10 +6,10 @@ import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/orderPages/order.dart';
 import 'package:laundaryapp/orderPages/orderid1.dart';
 
-import 'dashboard.dart';
+import '../profile/dashboard.dart';
 
-class ReviewPage extends StatelessWidget {
-  const ReviewPage({super.key});
+class MyreviewPage extends StatelessWidget {
+  const MyreviewPage({super.key});
 
   @override
   Widget build(BuildContext context) {

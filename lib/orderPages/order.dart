@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:laundaryapp/const.dart';
 import 'package:laundaryapp/orderPages/orderid.dart';
 import 'package:laundaryapp/orderPages/orderid1.dart';
 import 'package:laundaryapp/orderPages/tracking.dart';
+import 'package:laundaryapp/orderPages/review.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});
@@ -132,7 +134,7 @@ class OrderPage extends StatelessWidget {
                         builder: (context) => OrderidPage(),
                       ));
                 },
-                tracking:  () {
+                tracking: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -198,8 +200,7 @@ class showsheet extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12.r),
-              topRight: Radius.circular(12.r))),
+              topLeft: Radius.circular(12.r), topRight: Radius.circular(12.r))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -228,44 +229,23 @@ class showsheet extends StatelessWidget {
                   width: 333.w,
                   decoration: BoxDecoration(
                       color: Color(0xffECF3F6),
-                      borderRadius:
-                          BorderRadius.circular(12.r)),
+                      borderRadius: BorderRadius.circular(12.r)),
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        top: 14.h, left: 43.w, bottom: 15.h),
-                    child: Row(
-                      children: [
-                        star(
-                          color: color1FACF3,
-                          height: 42.h,
-                          width: 42.w,
-                        ),
-                        Gap(10.w),
-                        star(
-                          color: color1FACF3,
-                          height: 42.h,
-                          width: 42.w,
-                        ),
-                        Gap(10.w),
-                        star(
-                          color: color1FACF3,
-                          height: 42.h,
-                          width: 42.w,
-                        ),
-                        Gap(10.w),
-                        star(
-                          color: color1FACF3,
-                          height: 42.h,
-                          width: 42.w,
-                        ),
-                        Gap(10.w),
-                        star(
-                          color: Colors.white,
-                          height: 42.h,
-                          width: 42.w,
-                        ),
-                        Gap(10.w),
-                      ],
+                    padding: EdgeInsets.only(left: 43.w, top: 14.h),
+                    child: RatingBar.builder(
+                      itemPadding: EdgeInsets.only(right: 12.w),
+                      itemCount: 5,
+                      itemSize: 42.sp,
+                      initialRating: 0,
+                      minRating: 0,
+                      unratedColor: Colors.white,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          'asset/images/star1.png',
+                          color: Colors.blue,
+                        );
+                      },
+                      onRatingUpdate: (value) {},
                     ),
                   ),
                 ),
@@ -275,13 +255,11 @@ class showsheet extends StatelessWidget {
                   width: 333.w,
                   decoration: BoxDecoration(
                       color: Color(0xffECF3F6),
-                      borderRadius:
-                          BorderRadius.circular(12.r)),
+                      borderRadius: BorderRadius.circular(12.r)),
                   child: TextField(
                     style: font16fw700black,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide.none),
+                        border: OutlineInputBorder(borderSide: BorderSide.none),
                         hintText: 'Enter Feedback here',
                         hintStyle: TextStyle(
                           fontSize: 16.sp,
@@ -292,18 +270,26 @@ class showsheet extends StatelessWidget {
                   ),
                 ),
                 Gap(35.h),
-                Container(
-                  height: 64.h,
-                  width: 333.w,
-                  decoration: BoxDecoration(
-                      color: color1FACF3,
-                      borderRadius:
-                          BorderRadius.circular(140.r)),
-                  child: Center(
-                      child: Text(
-                    'Submit',
-                    style: font16fw700white,
-                  )),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyreviewPage(),
+                        ));
+                  },
+                  child: Container(
+                    height: 64.h,
+                    width: 333.w,
+                    decoration: BoxDecoration(
+                        color: color1FACF3,
+                        borderRadius: BorderRadius.circular(140.r)),
+                    child: Center(
+                        child: Text(
+                      'Submit',
+                      style: font16fw700white,
+                    )),
+                  ),
                 ),
               ],
             ),

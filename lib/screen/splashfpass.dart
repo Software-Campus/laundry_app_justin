@@ -8,9 +8,16 @@ import 'package:laundaryapp/screen/splashregister.dart';
 import 'package:laundaryapp/screen/splashverify.dart';
 import 'package:laundaryapp/widgets/SplashscreenBg.dart';
 
-class SplashForgot extends StatelessWidget {
+class SplashForgot extends StatefulWidget {
   const SplashForgot({super.key});
 
+  @override
+  State<SplashForgot> createState() => _SplashForgotState();
+}
+ TextEditingController password1=TextEditingController();
+  
+
+class _SplashForgotState extends State<SplashForgot> {
   @override
   Widget build(BuildContext context) {
     return SplashscreenBG(
@@ -56,6 +63,7 @@ class SplashForgot extends StatelessWidget {
           ),
           Gap(33.h),
            Regist(
+            control:password1,
             text: 'Enter Email ID or Phone Number',
           ),
           Gap(5.h),

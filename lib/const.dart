@@ -20,6 +20,13 @@ TextStyle font14fw500black = TextStyle(
   fontFamily: 'DM_Sans',
   
 );
+TextStyle font14fw5006E97AE = TextStyle(
+  fontSize: 14.sp,
+  fontWeight: FontWeight.w500,
+  color: Color(0xff6E97AE),
+  fontFamily: 'DM_Sans',
+  
+);
 
 TextStyle font14fw400black = TextStyle(
   fontSize: 14.sp,
@@ -41,6 +48,13 @@ TextStyle font16fw400black = TextStyle(
   fontFamily: 'DM_Sans',
 );
 
+TextStyle font16fw400white = TextStyle(
+  fontSize: 16.sp,
+  fontWeight: FontWeight.w400,
+  color: Colors.white,
+  fontFamily: 'DM_Sans',
+);
+
 TextStyle font16fw500black = TextStyle(
   fontSize: 16.sp,
   fontWeight: FontWeight.w500,
@@ -56,6 +70,7 @@ TextStyle font16fw500 = TextStyle(
 TextStyle font14fw500 = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontFamily: 'DM_Sans',
 );
 
